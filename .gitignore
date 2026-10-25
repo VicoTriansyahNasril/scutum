@@ -1,0 +1,12 @@
+# Added by Scutum — keep secrets and build artifacts out of git.
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+.venv/
+venv/
+dist/
+build/
+.DS_Store
+.scutum/.current-feature
