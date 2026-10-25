@@ -38,6 +38,12 @@ All command definitions reside in `.agents/commands/`:
 
 ## Execution Protocol
 
-1. Read the matching command file from `.agents/commands/scutum.<command>.md`.
-2. Inspect prerequisite artifacts and context in `.scutum/memory/constitution.md` and feature directories.
-3. Follow the phase gates, templates (`.scutum/templates/`), and rules described in the command file.
+1. **If user runs `/scutum` without arguments**:
+   - Immediately display an interactive menu of the Scutum SDD phases (Specify, Plan, Tasks, Implement, Converge, Test, etc.) with brief explanations of what each does and how to run them.
+   - Ask the user what they would like to do: start a new feature, plan an existing one, audit code, or run tests.
+
+2. **If user runs `/scutum` with an intent or specific feature request**:
+   - Classify the intent into the appropriate Scutum phase and route to it.
+   - For light commands (`specify`, `plan`, `tasks`), proceed with the instructions in `.agents/commands/scutum.<command>.md`.
+   - For heavy commands that modify repositories (`implement`, `redesign`, `revamp`, `upgrade`, `deploy`), confirm with the user before proceeding.
+
